@@ -1,0 +1,124 @@
+.Square {
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+
+.playerswitch {
+position: relative; width: 106px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.playerswitch-checkbox {
+display: none;
+}
+
+.playerswitch-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #999999; 
+}
+
+.playerswitch-inner {
+display: block; width: 200%; margin-left: -100%;
+transition: margin 0.3s ease-in 0s;
+
+}
+
+.playerswitch-inner:before, .playerswitch-inner:after {
+display: block; float: left; width: 50%; height: 35px; padding: 0; line-height: 35px;
+font-size: 15px; color: white; 
+box-sizing: border-box;
+}
+
+.playerswitch-inner:before {
+content: "2 Player";
+padding-left: 10px;
+background-color: #EEEEEE; color: #999999;
+}
+
+.playerswitch-inner:after {
+content: "1 Player";
+padding-right: 10px;
+background-color: #EEEEEE; color: #999999;
+text-align: right;
+}
+
+.playerswitch-button {
+display: block; width: 22px; margin: 6.5px;
+background: #2CD184;
+position: aboslute; top: 0; bottom: 0;
+right: 67px;
+border: 2px solid #999999; border-radius: 20px;
+transition: all 0.3s ease-in 0s;
+}
+
+.playerswitch-checkbox:checked + .playerswitch-label .playerswitch-inner {
+margin-left: 0;
+}
+
+.playerswitch-checkbox:checked + .playerswitch-label .playerswitch-button {
+right: 0px;
+background-color #27A1CA;
+}
+
+
+
+/*.playerswitch {
+position: relative; width: 106px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.playerswitch-checkbox {
+display: none;
+}
+
+.playerswitch-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #999999; border-radius: 20px;
+}
+
+.playerswitch-inner {
+display: block; width: 200%; margin-left: -100%;
+transition: margin 0.3s ease-in 0s;
+}
+
+.playerswitch-inner:before, .playerswitch-inner:after {
+display: block; float: left; width: 50%; height: 35px; padding: 0; line-height: 35px;
+font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+box-sizing: border-box;
+}
+
+.playerswitch-inner:before {
+content: "2 Player";
+padding-left: 10px;
+background-color: #EEEEEE; color: #999999;
+}
+
+.playerswitch-inner:after {
+content: "1 Player";
+padding-right: 10px;
+background-color: #EEEEEE; color: #999999;
+text-align: right;
+}
+
+.playerswitch-button {
+display: block; width: 22px; margin: 6.5px;
+background: #2CD184;
+position: absolute; top: 0; bottom: 0;
+right: 67px;
+border: 2px solid #999999; border-radius: 20px;
+transition: all 0.3s ease-in 0s; 
+}
+
+.playerswitch-checkbox:checked + .playerswitch-label .playerswitch-inner {
+margin-left: 0;
+}
+
+.playerswitch-checkbox:checked + .playerswitch-label .playerswitch-button {
+right: 0px; 
+background-color: #27A1CA; 
+}
+*/ 

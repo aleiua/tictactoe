@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="tictacstyle.css">
+
+	<script type="text/javascript" >
+
+	function startGame() {
+
+		for(var i = 0; i <= 8; i++) {
+			clearSquare(i);
+		}
+
+		if(Math.random() < 0.5) {
+			document.turn = "O";
+		} else {
+			document.turn = "X";
+		}
+
+		setMessage(document.turn + " gets to start");
+		document.winner = null;
+
+
+
+
+	}
+
+	function setMessage(msg) {
+		document.getElementById("message").innerText = msg;
+	}
+
+
+	function nextMove(square) {
+		if(document.winner != null) {
+			setMessage("Game Over! " + document.winner + " already won!");
+		} else if (square.innerText == "") {
+			square.innerText = document.turn;
+			switchTurn();
+		} else {
+			setMessage("Invalid Move");
+		}
+
+
+	}
+
+	function switchTurn() {
+		if (checkForWin(document.turn)) {
+			setMessage("Player " + document.turn + " wins!");
+			document.winner = document.turn;
+			
+		} else if (document.turn == "X" ) {
+			document.turn = "O";
+			setMessage("It's " + document.turn + "'s turn");
+
+		} else {
+			document.turn = "X";
+			setMessage("It's " + document.turn + "'s turn");
+
+		}
+
+	}
+
+	function checkForWin(move) {
+		var win = false;
+		if (checkRow(0, 1, 2, move) || 
+			checkRow(3, 4, 5, move) || 
+			checkRow(6, 7, 8, move) || 
+			checkRow(0, 3, 6, move) || 
+			checkRow(1, 4, 7, move) || 
+			checkRow(2, 5, 8, move) || 
+			checkRow(0, 4, 8, move) || 
+			checkRow(2, 4, 6, move)) {
+			win = true;
+
+		}
+		return win;
+	}
+
+
+	function checkRow(a, b, c, move) {
+		var win = false;
+		if (getSquare(a) == move && getSquare(b) === move && getSquare(c) == move) {
+			win = true;
+		}
+		return win;
+	}
+
+	function getSquare(number) {
+		return document.getElementById("s" + number).innerText;
+	}
+
+	function clearSquare(number) {
+		document.getElementById("s" + number).innerText = "";
+	}
+
+
+	</script>
+</head>
+
+<body onload="startGame();">
+
+	<h1>TicTacToe!</h1>
+
+	<div class="playerswitch">
+		<input type="checkbox" name="playerswitch" class="playerswitch-checkbox" id= "myplayerswitch" checked>
+		<label class="playerswitch-label" for="myplayerswitch">
+			<span class="playerswitch-inner"></span>
+			<span class="playerswitch-button"></span>
+		</label>
+	</div>
+
+<!-- 	<div class="playerswitch">
+    <input type="checkbox" name="playerswitch" class="playerswitch-checkbox" id="myplayersswitch" checked>
+    <label class="playerswitch-label" for="playerswitch">
+        <span class="playerswitch-inner"></span>
+        <span class="playerswitch-button"></span>
+    </label>
+	</div> -->
+
+	<div id="message">messages will go here</div>
+
+	<table border ="1"> 
+		<tr>
+			<td id="s0" class="Square" onClick="nextMove(this);"></td>
+			<td id="s1" class="Square" onClick="nextMove(this);"></td>
+			<td id="s2" class="Square" onClick="nextMove(this);"></td>
+		</tr>
+		<tr>
+			<td id="s3" class="Square" onClick="nextMove(this);"></td>
+			<td id="s4" class="Square" onClick="nextMove(this);"></td>
+			<td id="s5" class="Square" onClick="nextMove(this);"></td>
+		</tr>
+		<tr>
+			<td id="s6" class="Square" onClick="nextMove(this);"></td>
+			<td id="s7" class="Square" onClick="nextMove(this);"></td>
+			<td id="s8" class="Square" onClick="nextMove(this);"></td>
+		</tr>
+	</table>
+
+	<button type="button" onClick="startGame()">Start Over!</button>
+
+</body>
+
+
+
+
+</html>
